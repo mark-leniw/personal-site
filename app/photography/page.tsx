@@ -48,7 +48,7 @@ export default function PhotographyPage() {
 
                 <div className="p-6">
                   <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-600">
-                    {collection.status}
+                    
                   </p>
 
                   <h2 className="text-2xl font-semibold tracking-[-0.03em] text-zinc-100">

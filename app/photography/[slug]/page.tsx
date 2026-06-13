@@ -64,7 +64,7 @@ export default async function PhotographyCollectionPage({
         <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-end">
           <div>
             <p className="mb-5 text-sm uppercase tracking-[0.35em] text-zinc-600">
-              {collection.status}
+              
             </p>
 
             <h1 className="text-5xl font-semibold tracking-[-0.05em] text-zinc-100 sm:text-7xl">

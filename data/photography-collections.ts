@@ -3,7 +3,7 @@ import type { PhotoGridItem } from "@/components/photography/photo-grid";
 export type PhotographyCollection = {
   title: string;
   slug: string;
-  status: string;
+  
   description: string;
   coverImage: string;
   mood: string;
@@ -15,7 +15,6 @@ export const photographyCollections: PhotographyCollection[] = [
   {
     title: "L.A. Noir",
     slug: "la-noir",
-    status: "Primary collection",
     description:
       "Black-and-white Los Angeles photography shaped by shadow, empty streets, architecture, storefronts, and the quiet drama of ordinary places.",
     coverImage: "/photos/photography/la-noir/web/la-noir-alex.jpg",
@@ -75,7 +74,6 @@ export const photographyCollections: PhotographyCollection[] = [
   /* {
     title: "L.A. After Hours",
     slug: "la-after-hours",
-    status: "In progress",
     description:
       "Color night photography from Los Angeles: neon residue, artificial light, reflections, glowing windows, and the strange calm that settles when the day lets go.",
     coverImage: "/photos/photography/la-after-hours/cover.jpg",
@@ -137,7 +135,6 @@ export const photographyCollections: PhotographyCollection[] = [
   {
     title: "Before Light",
     slug: "before-light",
-    status: "Early studies",
     description:
       "Morning fog, muted streets, soft coastal air, and the half-awake city before it becomes itself.",
     coverImage: "/photos/photography/before-light/cover.jpg",
@@ -199,7 +196,6 @@ export const photographyCollections: PhotographyCollection[] = [
   {
     title: "The California Edge",
     slug: "california-edge",
-    status: "Building",
     description:
       "Waves, piers, rock formations, fog, tide pools, long exposures, and the changing edge where California meets the Pacific.",
     coverImage:"/photos/photography/california-edge/web/under-the-pier.jpg",
@@ -207,8 +203,6 @@ export const photographyCollections: PhotographyCollection[] = [
       "Moving water, dark pier structures, under-pier shadows, rocks, mist, gray skies, coastal architecture, and the quiet force of the Pacific.",
     notes: [
       "This collection holds the broader coastal work: waves, piers, fog, rocks, tide pools, and beach structures.",
-      "Best for tripod work, under-pier compositions, moving water, long exposures, and dramatic coastal weather.",
-      "Broad enough for quiet fog images, powerful wave studies, and architectural beach frames.",
     ],
     photos: [
       {
@@ -262,7 +256,6 @@ export const photographyCollections: PhotographyCollection[] = [
   {
     title: "Equestrian California",
     slug: "equestrian-california",
-    status: "Planned collection",
     description:
       "Horses, racetracks, stables, riding arenas, training grounds, and the quieter equestrian spaces woven through Southern California.",
     coverImage: "/photos/photography/equestrian-california/web/DSC_1332.jpg",
