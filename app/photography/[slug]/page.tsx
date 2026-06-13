@@ -98,28 +98,6 @@ export default async function PhotographyCollectionPage({
         </div>
       </section>
 
-      <section className="border-t border-zinc-900 px-6 py-20">
-        <div className="mx-auto max-w-6xl">
-          <SectionHeading
-            eyebrow="Collection notes"
-            title="The shape of this series."
-            description="Each collection is built slowly, around repeated light, atmosphere, locations, and visual instincts that keep returning."
-            className="mb-10 max-w-3xl"
-          />
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {collection.notes.map((note) => (
-              <div
-                key={note}
-                className="rounded-3xl border border-zinc-900 bg-zinc-950/70 p-6 text-zinc-400"
-              >
-                {note}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="border-t border-zinc-900 bg-[#080808] px-6 py-20">
         <div className="mx-auto max-w-6xl">
           <SectionHeading
