@@ -244,8 +244,8 @@ export const photographyCollections: PhotographyCollection[] = [
         watermark: "Web image only",
       },
       {
-        title: "Birds on a Rock",
-        slug: "birds-on-a-rock",
+        title: "The Birds",
+        slug: "the-birds",
         location: "Malibu, California",
         image: "/photos/photography/california-edge/web/birds-on-a-rock.jpg",
         orientation: "wide",
