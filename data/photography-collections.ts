@@ -23,8 +23,6 @@ export const photographyCollections: PhotographyCollection[] = [
       "Monochrome streets, hard shadows, deep blacks, lonely storefronts, parking lots, alleys, old signs, glass, concrete, and the feeling that Los Angeles is holding something back.",
     notes: [
       "This is the main home for black-and-white and monochrome Los Angeles work.",
-      "Best for strong contrast, lonely compositions, graphic shadows, and cinematic urban frames.",
-      "Likely one of the strongest first candidates for a finished print collection.",
     ],
     photos: [
       {
