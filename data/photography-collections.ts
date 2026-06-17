@@ -71,12 +71,12 @@ export const photographyCollections: PhotographyCollection[] = [
       },
     ],
   },
-  /* {
+  {
     title: "L.A. After Hours",
     slug: "la-after-hours",
     description:
       "Color night photography from Los Angeles: neon residue, artificial light, reflections, glowing windows, and the strange calm that settles when the day lets go.",
-    coverImage: "/photos/photography/la-after-hours/cover.jpg",
+    coverImage: "/photos/photography/la-after-hours/web/DSC_1309.jpg",
     mood:
       "Dark streets, closed businesses, leftover neon, parking lots, reflections, and the feeling that the city is still awake somewhere nearby.",
     notes: [
@@ -86,113 +86,83 @@ export const photographyCollections: PhotographyCollection[] = [
     ],
     photos: [
       {
-        title: "Closed Sign Study",
-        slug: "closed-sign-study",
-        location: "Los Angeles",
-        image: "/photos/photography/la-after-hours/closed-sign-study.jpg",
+        title: "Night Ride to the Pier",
+        slug: "night-ride-to-the-pier",
+        location: "Santa Monica, California",
+        image: "/photos/photography/la-after-hours/web/DSC_1309.jpg",
         orientation: "wide",
         printStatus: "Candidate for review",
         description:
-          "A color night study of a quiet storefront or sign after business hours, held together by artificial light and surrounding darkness.",
+          "A night study along the beach path, with cyclists moving through darkness toward the distant glow of the Santa Monica Pier.",
         camera: "Nikon D850",
-        lens: "TBD",
-        settings: "TBD",
+        lens: "Nikon AF-S 85mm f/1.4G",
+        settings: "ISO 6400 · f/6.3 · 1/80 sec",
         year: "2026",
         watermark: "Web image only",
-      },
-      {
-        title: "Parking Lot Glow",
-        slug: "parking-lot-glow",
-        location: "Burbank",
-        image: "/photos/photography/la-after-hours/parking-lot-glow.jpg",
-        orientation: "square",
-        printStatus: "Working select",
-        description:
-          "A dark parking lot scene shaped by reflected artificial light, empty space, and the quiet mood of Los Angeles after hours.",
-        camera: "Nikon D850",
-        lens: "TBD",
-        settings: "TBD",
-        year: "2026",
-        watermark: "Web image only",
-      },
-      {
-        title: "Window After Dark",
-        slug: "window-after-dark",
-        location: "Los Angeles",
-        image: "/photos/photography/la-after-hours/window-after-dark.jpg",
-        orientation: "tall",
-        printStatus: "Study image",
-        description:
-          "A vertical night window or doorway composition built around glow, glass, color, and surrounding darkness.",
-        camera: "Nikon D850",
-        lens: "TBD",
-        settings: "TBD",
-        year: "2026",
-        watermark: "Web image only",
-      },
+      }
     ],
   },
-  {
-    title: "Before Light",
-    slug: "before-light",
-    description:
-      "Morning fog, muted streets, soft coastal air, and the half-awake city before it becomes itself.",
-    coverImage: "/photos/photography/before-light/cover.jpg",
-    mood:
-      "Overcast mornings, empty routes, marine layer, soft storefront light, and the quiet before the day gets loud.",
-    notes: [
-      "Best for early morning scouting routes.",
-      "Pairs well with fog, low contrast, and gentle color.",
-      "Could become the softer counterpoint to L.A. Noir and L.A. After Hours.",
-    ],
-    photos: [
-      {
-        title: "Marine Layer Route",
-        slug: "marine-layer-route",
-        location: "Burbank",
-        image: "/photos/photography/before-light/marine-layer-route.jpg",
-        orientation: "wide",
-        printStatus: "Study image",
-        description:
-          "An early morning route under marine layer light, where the city feels muted before it becomes loud.",
-        camera: "Nikon D850",
-        lens: "TBD",
-        settings: "TBD",
-        year: "2026",
-        watermark: "Web image only",
-      },
-      {
-        title: "Morning Storefront",
-        slug: "morning-storefront",
-        location: "San Fernando Valley",
-        image: "/photos/photography/before-light/morning-storefront.jpg",
-        orientation: "square",
-        printStatus: "Working select",
-        description:
-          "A quiet storefront before the city fully wakes up, held in soft morning light and low contrast.",
-        camera: "Nikon D850",
-        lens: "TBD",
-        settings: "TBD",
-        year: "2026",
-        watermark: "Web image only",
-      },
-      {
-        title: "Empty Side Street",
-        slug: "empty-side-street",
-        location: "Los Angeles",
-        image: "/photos/photography/before-light/empty-side-street.jpg",
-        orientation: "tall",
-        printStatus: "Candidate for review",
-        description:
-          "An empty side street in soft morning light, built around quiet, restraint, and the feeling of a day not yet started.",
-        camera: "Nikon D850",
-        lens: "TBD",
-        settings: "TBD",
-        year: "2026",
-        watermark: "Web image only",
-      },
-    ],
-  }, */
+  // {
+  //   title: "Before Light",
+  //   slug: "before-light",
+  //   description:
+  //     "Morning fog, muted streets, soft coastal air, and the half-awake city before it becomes itself.",
+  //   coverImage: "/photos/photography/before-light/cover.jpg",
+  //   mood:
+  //     "Overcast mornings, empty routes, marine layer, soft storefront light, and the quiet before the day gets loud.",
+  //   notes: [
+  //     "Best for early morning scouting routes.",
+  //     "Pairs well with fog, low contrast, and gentle color.",
+  //     "Could become the softer counterpoint to L.A. Noir and L.A. After Hours.",
+  //   ],
+  //   photos: [
+  //     {
+  //       title: "Marine Layer Route",
+  //       slug: "marine-layer-route",
+  //       location: "Burbank",
+  //       image: "/photos/photography/before-light/marine-layer-route.jpg",
+  //       orientation: "wide",
+  //       printStatus: "Study image",
+  //       description:
+  //         "An early morning route under marine layer light, where the city feels muted before it becomes loud.",
+  //       camera: "Nikon D850",
+  //       lens: "TBD",
+  //       settings: "TBD",
+  //       year: "2026",
+  //       watermark: "Web image only",
+  //     },
+  //     {
+  //       title: "Morning Storefront",
+  //       slug: "morning-storefront",
+  //       location: "San Fernando Valley",
+  //       image: "/photos/photography/before-light/morning-storefront.jpg",
+  //       orientation: "square",
+  //       printStatus: "Working select",
+  //       description:
+  //         "A quiet storefront before the city fully wakes up, held in soft morning light and low contrast.",
+  //       camera: "Nikon D850",
+  //       lens: "TBD",
+  //       settings: "TBD",
+  //       year: "2026",
+  //       watermark: "Web image only",
+  //     },
+  //     {
+  //       title: "Empty Side Street",
+  //       slug: "empty-side-street",
+  //       location: "Los Angeles",
+  //       image: "/photos/photography/before-light/empty-side-street.jpg",
+  //       orientation: "tall",
+  //       printStatus: "Candidate for review",
+  //       description:
+  //         "An empty side street in soft morning light, built around quiet, restraint, and the feeling of a day not yet started.",
+  //       camera: "Nikon D850",
+  //       lens: "TBD",
+  //       settings: "TBD",
+  //       year: "2026",
+  //       watermark: "Web image only",
+  //     },
+  //   ],
+  // },
   {
     title: "The California Edge",
     slug: "california-edge",
