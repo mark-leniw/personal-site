@@ -3,37 +3,37 @@ import { DarkImage } from "@/components/photography/dark-image";
 import { PhotoGrid } from "@/components/photography/photo-grid";
 import { SectionHeading } from "@/components/photography/section-heading";
 import {
-  getPhotographyCollection,
-  photographyCollections,
-} from "@/data/photography-collections";
+  digitalArtCollections,
+  getDigitalArtCollection,
+} from "@/data/digital-art-collections";
 
-type PhotographyCollectionPageProps = {
+type DigitalArtCollectionPageProps = {
   params: Promise<{
     slug: string;
   }>;
 };
 
 export function generateStaticParams() {
-  return photographyCollections.map((collection) => ({
+  return digitalArtCollections.map((collection) => ({
     slug: collection.slug,
   }));
 }
 
-export default async function PhotographyCollectionPage({
+export default async function DigitalArtCollectionPage({
   params,
-}: PhotographyCollectionPageProps) {
+}: DigitalArtCollectionPageProps) {
   const { slug } = await params;
-  const collection = getPhotographyCollection(slug);
+  const collection = getDigitalArtCollection(slug);
 
   if (!collection) {
     return (
       <main className="min-h-screen bg-[#050505] px-6 py-24 text-zinc-100">
         <div className="mx-auto max-w-4xl">
           <Link
-            href="/photography"
+            href="/digital-art"
             className="text-sm text-zinc-500 transition hover:text-zinc-300"
           >
-            ← Back to photography
+            ← Back to digital art
           </Link>
 
           <h1 className="mt-12 text-4xl font-semibold tracking-[-0.04em] sm:text-6xl">
@@ -41,7 +41,7 @@ export default async function PhotographyCollectionPage({
           </h1>
 
           <p className="mt-6 max-w-2xl text-zinc-500">
-            This photography collection does not exist yet.
+            This digital art collection does not exist yet.
           </p>
 
           <p className="mt-6 text-sm text-zinc-700">
@@ -56,16 +56,16 @@ export default async function PhotographyCollectionPage({
     <main className="min-h-screen bg-[#050505] text-zinc-100">
       <section className="mx-auto max-w-6xl px-6 py-20">
         <Link
-          href="/photography"
+          href="/digital-art"
           className="text-sm text-zinc-500 transition hover:text-zinc-300"
         >
-          ← Back to photography
+          ← Back to digital art
         </Link>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-end">
           <div>
             <p className="mb-5 text-sm uppercase tracking-[0.35em] text-zinc-600">
-              
+              Digital Art
             </p>
 
             <h1 className="text-5xl font-semibold tracking-[-0.05em] text-zinc-100 sm:text-7xl">
@@ -103,14 +103,16 @@ export default async function PhotographyCollectionPage({
         <div className="mx-auto max-w-6xl">
           <SectionHeading
             eyebrow="Gallery"
-            title="Selected images."
-            description="Early selects, studies, and future print candidates from this collection."
+            title="Selected works."
+            description="Digital studies, visual experiments, and future finished pieces from this collection."
             className="mb-10 max-w-3xl"
           />
 
           <PhotoGrid
-            photos={collection.photos}
+            photos={collection.artworks}
             collectionSlug={collection.slug}
+            basePath="/digital-art"
+            ctaLabel="View work"
           />
         </div>
       </section>
@@ -119,9 +121,9 @@ export default async function PhotographyCollectionPage({
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-3xl border border-zinc-900 bg-black p-8 sm:p-10">
             <SectionHeading
-              eyebrow="Prints"
-              title="Prints from this collection will be available later."
-              description="Once the final selects are reviewed for sharpness, tone, crop, and print quality, this section can show available images, sizes, paper options, and purchase links."
+              eyebrow="Editions"
+              title="Digital art editions will be available later."
+              description="Once final works are selected, this section can show edition details, formats, print options, licensing notes, and purchase links."
             />
           </div>
 
@@ -131,12 +133,12 @@ export default async function PhotographyCollectionPage({
             </p>
 
             <h2 className="text-3xl font-semibold tracking-[-0.03em] text-zinc-100 sm:text-4xl">
-              Interested in a piece from this series?
+              Interested in work from this series?
             </h2>
 
             <p className="mt-6 leading-7 text-zinc-500">
-              Until the print shop is live, this can point visitors toward
-              direct contact for print interest, licensing, or private
+              Until a shop or edition system is live, this can point visitors
+              toward direct contact for licensing, collaboration, or private
               inquiries.
             </p>
 

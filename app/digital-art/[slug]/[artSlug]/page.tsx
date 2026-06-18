@@ -2,56 +2,56 @@ import Link from "next/link";
 import { LightboxImage } from "@/components/photography/lightbox-image";
 import { SectionHeading } from "@/components/photography/section-heading";
 import {
-  getAllPhotographyPhotos,
-  getPhotographyPhoto,
-  getPhotographyPhotoNavigation,
-} from "@/data/photography-collections";
+  getAllDigitalArtWorks,
+  getDigitalArtWork,
+  getDigitalArtWorkNavigation,
+} from "@/data/digital-art-collections";
 
-type PhotographyPhotoPageProps = {
+type DigitalArtWorkPageProps = {
   params: Promise<{
     slug: string;
-    photoSlug: string;
+    artSlug: string;
   }>;
 };
 
 export function generateStaticParams() {
-  return getAllPhotographyPhotos().map((photo) => ({
-    slug: photo.collectionSlug,
-    photoSlug: photo.photoSlug,
+  return getAllDigitalArtWorks().map((artwork) => ({
+    slug: artwork.collectionSlug,
+    artSlug: artwork.artSlug,
   }));
 }
 
-export default async function PhotographyPhotoPage({
+export default async function DigitalArtWorkPage({
   params,
-}: PhotographyPhotoPageProps) {
-  const { slug, photoSlug } = await params;
-  const { collection, photo } = getPhotographyPhoto(slug, photoSlug);
-  const { previousPhoto, nextPhoto } = getPhotographyPhotoNavigation(
+}: DigitalArtWorkPageProps) {
+  const { slug, artSlug } = await params;
+  const { collection, artwork } = getDigitalArtWork(slug, artSlug);
+  const { previousArtwork, nextArtwork } = getDigitalArtWorkNavigation(
     slug,
-    photoSlug,
+    artSlug,
   );
 
-  if (!collection || !photo) {
+  if (!collection || !artwork) {
     return (
       <main className="min-h-screen bg-[#050505] px-6 py-24 text-zinc-100">
         <div className="mx-auto max-w-4xl">
           <Link
-            href="/photography"
+            href="/digital-art"
             className="text-sm text-zinc-500 transition hover:text-zinc-300"
           >
-            ← Back to photography
+            ← Back to digital art
           </Link>
 
           <h1 className="mt-12 text-4xl font-semibold tracking-[-0.04em] sm:text-6xl">
-            Photo not found.
+            Work not found.
           </h1>
 
           <p className="mt-6 max-w-2xl text-zinc-500">
-            This photo page does not exist yet.
+            This digital art page does not exist yet.
           </p>
 
           <p className="mt-6 text-sm text-zinc-700">
-            Requested photo: {slug}/{photoSlug}
+            Requested work: {slug}/{artSlug}
           </p>
         </div>
       </main>
@@ -60,13 +60,8 @@ export default async function PhotographyPhotoPage({
 
   const details = [
     ["Collection", collection.title],
-    ["Location", photo.location],
-    ["Year", photo.year ?? "TBD"],
-    ["Camera", photo.camera ?? "TBD"],
-    ["Lens", photo.lens ?? "TBD"],
-    ["Exposure", photo.settings ?? "TBD"],
-    ["Print status", photo.printStatus ?? "Not reviewed yet"],
-    ["Watermark", photo.watermark ?? "Web image only"],
+    ["Year", artwork.year],
+    ["Medium", artwork.medium],
   ];
 
   return (
@@ -74,17 +69,17 @@ export default async function PhotographyPhotoPage({
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="flex flex-wrap gap-4">
           <Link
-            href={`/photography/${collection.slug}`}
+            href={`/digital-art/${collection.slug}`}
             className="text-sm text-zinc-500 transition hover:text-zinc-300"
           >
             ← Back to {collection.title}
           </Link>
 
           <Link
-            href="/photography"
+            href="/digital-art"
             className="text-sm text-zinc-700 transition hover:text-zinc-400"
           >
-            All photography
+            All digital art
           </Link>
         </div>
 
@@ -95,30 +90,24 @@ export default async function PhotographyPhotoPage({
             </p>
 
             <h1 className="text-5xl font-semibold tracking-[-0.05em] text-zinc-100 sm:text-7xl">
-              {photo.title}
+              {artwork.title}
             </h1>
 
             <div className="mt-8 space-y-3 text-zinc-500">
               <p className="text-xl leading-8 text-zinc-400">
-                {photo.location}
+                {artwork.medium}
               </p>
 
               <p className="text-sm uppercase tracking-[0.25em] text-zinc-700">
-                {photo.year ?? "Year TBD"}
+                {artwork.year}
               </p>
             </div>
-
-            {photo.printStatus ? (
-              <p className="mt-8 inline-flex rounded-full border border-zinc-800 bg-black px-4 py-2 text-sm text-zinc-500">
-                {photo.printStatus}
-              </p>
-            ) : null}
           </div>
 
           <div className="order-1 lg:order-2">
             <LightboxImage
-              src={photo.image}
-              alt={photo.title}
+              src={artwork.image}
+              alt={artwork.title}
               className="flex h-[36rem] items-center justify-center rounded-3xl border border-zinc-900 bg-black lg:h-[42rem]"
               imageClassName="h-full w-full object-contain opacity-95"
             />
@@ -129,14 +118,13 @@ export default async function PhotographyPhotoPage({
       <section className="border-t border-zinc-900 bg-[#080808] px-6 py-20">
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[0.75fr_1.25fr]">
           <SectionHeading
-            eyebrow="Image notes"
-            title="The story behind the frame."
+            eyebrow="Work notes"
+            title="The idea behind the image."
           />
 
           <div className="space-y-8">
             <p className="max-w-3xl text-xl leading-9 text-zinc-400">
-              {photo.description ??
-                "This page is ready for the final image description, location notes, camera settings, editing notes, print status, and purchase options when this photo becomes part of a finished collection."}
+              {artwork.description}
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -153,6 +141,18 @@ export default async function PhotographyPhotoPage({
                 </div>
               ))}
             </div>
+
+            <div className="rounded-3xl border border-zinc-900 bg-black p-6">
+              <p className="text-xs uppercase tracking-[0.25em] text-zinc-700">
+                Notes
+              </p>
+
+              <ul className="mt-4 space-y-3 text-zinc-400">
+                {artwork.notes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -161,9 +161,9 @@ export default async function PhotographyPhotoPage({
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
           <div className="rounded-3xl border border-zinc-900 bg-black p-8 sm:p-10">
             <SectionHeading
-              eyebrow="Prints"
-              title="Print options will be added later."
-              description="For now, this is a portfolio detail page. When the print system is ready, this area can show available sizes, paper type, edition details, and purchase links."
+              eyebrow="Editions"
+              title="Edition details will be added later."
+              description="For now, this is a portfolio detail page. Later this area can show print availability, digital edition notes, licensing terms, and purchase links."
             />
           </div>
 
@@ -173,20 +173,19 @@ export default async function PhotographyPhotoPage({
             </p>
 
             <h2 className="text-3xl font-semibold tracking-[-0.03em] text-zinc-100 sm:text-4xl">
-              Interested in this image?
+              Interested in this work?
             </h2>
 
             <p className="mt-6 leading-7 text-zinc-500">
-              Until the print shop is live, this section can eventually point to
-              a contact form or email link for print interest, licensing, or
-              private inquiries.
+              Until a shop or edition system is live, this section can point to
+              direct contact for licensing, collaboration, or private inquiries.
             </p>
 
             <a
               href="/contact"
               className="mt-8 inline-flex rounded-full border border-zinc-800 px-5 py-3 text-sm text-zinc-300 transition hover:border-zinc-500 hover:bg-zinc-900"
             >
-              Contact about this image
+              Contact about this work
             </a>
           </div>
         </div>
@@ -194,22 +193,22 @@ export default async function PhotographyPhotoPage({
 
       <section className="border-t border-zinc-900 bg-[#080808] px-6 py-16">
         <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2">
-          {previousPhoto ? (
+          {previousArtwork ? (
             <Link
-              href={`/photography/${collection.slug}/${previousPhoto.slug}`}
+              href={`/digital-art/${collection.slug}/${previousArtwork.slug}`}
               className="rounded-3xl border border-zinc-900 bg-black p-6 transition hover:border-zinc-700"
             >
               <p className="text-xs uppercase tracking-[0.25em] text-zinc-700">
-                Previous image
+                Previous work
               </p>
               <h3 className="mt-3 text-2xl font-medium tracking-[-0.03em] text-zinc-100">
-                ← {previousPhoto.title}
+                ← {previousArtwork.title}
               </h3>
             </Link>
           ) : (
             <div className="rounded-3xl border border-zinc-900 bg-black p-6 opacity-40">
               <p className="text-xs uppercase tracking-[0.25em] text-zinc-700">
-                Previous image
+                Previous work
               </p>
               <h3 className="mt-3 text-2xl font-medium tracking-[-0.03em] text-zinc-500">
                 Start of collection
@@ -217,22 +216,22 @@ export default async function PhotographyPhotoPage({
             </div>
           )}
 
-          {nextPhoto ? (
+          {nextArtwork ? (
             <Link
-              href={`/photography/${collection.slug}/${nextPhoto.slug}`}
+              href={`/digital-art/${collection.slug}/${nextArtwork.slug}`}
               className="rounded-3xl border border-zinc-900 bg-black p-6 text-right transition hover:border-zinc-700"
             >
               <p className="text-xs uppercase tracking-[0.25em] text-zinc-700">
-                Next image
+                Next work
               </p>
               <h3 className="mt-3 text-2xl font-medium tracking-[-0.03em] text-zinc-100">
-                {nextPhoto.title} →
+                {nextArtwork.title} →
               </h3>
             </Link>
           ) : (
             <div className="rounded-3xl border border-zinc-900 bg-black p-6 text-right opacity-40">
               <p className="text-xs uppercase tracking-[0.25em] text-zinc-700">
-                Next image
+                Next work
               </p>
               <h3 className="mt-3 text-2xl font-medium tracking-[-0.03em] text-zinc-500">
                 End of collection
